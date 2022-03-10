@@ -1,7 +1,8 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 
 import '../screen/project_detail_screen.dart';
-// import '../screens/faculty_screen.dart';
 
 class ProjectItem extends StatelessWidget {
   final String title;
@@ -14,6 +15,7 @@ class ProjectItem extends StatelessWidget {
       ProjectDetailScreen.routeName,
       arguments: {
         'title': title,
+        'image': image,
       },
     );
   }
@@ -21,7 +23,7 @@ class ProjectItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = double.infinity;
-    var height = MediaQuery.of(context).size.height / 3 - 80;
+    var height = MediaQuery.of(context).size.height / 3 - 100;
     return InkWell(
       onTap: () => selectCampus(context),
       splashColor: Colors.amber.shade200,
@@ -30,11 +32,13 @@ class ProjectItem extends StatelessWidget {
         width: width,
         height: height,
         padding: const EdgeInsets.all(0),
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         child: Stack(
           children: <Widget>[
             ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(15)),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(15),
+              ),
               child: Image.asset(
                 image,
                 height: height,
@@ -54,6 +58,7 @@ class ProjectItem extends StatelessWidget {
                 ),
                 child: Text(
                   title,
+                  // image,
                   style: const TextStyle(
                     fontSize: 18,
                     color: Colors.white,
