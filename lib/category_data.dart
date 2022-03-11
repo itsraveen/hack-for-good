@@ -1,4 +1,5 @@
 import 'models/projects.dart';
+import 'models/users.dart';
 
 const PROJECTS_CATEGORIES = [
   Projects(
@@ -40,4 +41,12 @@ const PROJECTS_CATEGORIES = [
     fundings: "\$43,000 / \$100,000",
     manpower: "27 / 100",
   ),
+];
+
+const USERS = [
+  Users(
+    name: "Frank William",
+    image: 'assets/images/fop.jpg',
+    amountDonated: "\$43.70",
+  )
 ];

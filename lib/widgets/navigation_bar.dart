@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../screen/profile_screen.dart';
 import '../screen/projects_screen.dart';
 // import 'package:sizer/sizer.dart';
 
@@ -28,12 +29,7 @@ class _NavigationsBarState extends State<NavigationsBar> {
       // 'appBar':,
     },
     {
-      'page': const ProjectsScreen(),
-      'title': 'Projects',
-      // 'appBar':,
-    },
-    {
-      'page': const ProjectsScreen(),
+      'page': const ProfileScreen(),
       'title': 'Projects',
       // 'appBar':,
     },
@@ -50,7 +46,7 @@ class _NavigationsBarState extends State<NavigationsBar> {
         context,
         PageRouteBuilder(
           pageBuilder: (context, animation1, animation2) => ProjectsScreen(),
-          transitionDuration: Duration(seconds: 2),
+          transitionDuration: const Duration(seconds: 2),
         ),
       );
     } else if (_selectedPageIndex == 1) {
@@ -58,26 +54,8 @@ class _NavigationsBarState extends State<NavigationsBar> {
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
-          pageBuilder: (context, animation1, animation2) => ProjectsScreen(),
-          transitionDuration: Duration(seconds: 2),
-        ),
-      );
-    } else if (_selectedPageIndex == 2) {
-      // Navigator.of(context).popAndPushNamed(FavouritesTabsScreen.routeName);
-      Navigator.pushReplacement(
-        context,
-        PageRouteBuilder(
-          pageBuilder: (context, animation1, animation2) => ProjectsScreen(),
-          transitionDuration: Duration(seconds: 2),
-        ),
-      );
-    } else if (_selectedPageIndex == 3) {
-      // Navigator.of(context).popAndPushNamed(StudyAreasScreen.routeName);
-      Navigator.pushReplacement(
-        context,
-        PageRouteBuilder(
-          pageBuilder: (context, animation1, animation2) => ProjectsScreen(),
-          transitionDuration: Duration(seconds: 2),
+          pageBuilder: (context, animation1, animation2) => ProfileScreen(),
+          transitionDuration: const Duration(seconds: 2),
         ),
       );
     } else {
@@ -142,30 +120,6 @@ class _NavigationsBarState extends State<NavigationsBar> {
             label: "Test",
             // title: Text(
             //   'Search',
-            //   style: TextStyle(
-            //     color: Colors.grey.shade600,
-            //     fontSize: 0,
-            //   ),
-            // ),
-            backgroundColor: Theme.of(context).backgroundColor,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              pageNo == 2
-                  ? Platform.isIOS
-                      ? CupertinoIcons.heart_fill
-                      : Icons.favorite
-                  : Platform.isIOS
-                      ? CupertinoIcons.heart
-                      : Icons.favorite_border,
-              color: pageNo == 2
-                  ? Theme.of(context).primaryColor
-                  : Theme.of(context).iconTheme.color,
-            ),
-            // label: 'Favourites',
-            label: "Test",
-            // title: Text(
-            //   'Favourites',
             //   style: TextStyle(
             //     color: Colors.grey.shade600,
             //     fontSize: 0,
