@@ -107,17 +107,17 @@ class _NavigationsBarState extends State<NavigationsBar> {
               // _selectedPageIndex == pageNo
               pageNo == 1
                   ? Platform.isIOS
-                      ? CupertinoIcons.search
-                      : Icons.search
+                      ? CupertinoIcons.person
+                      : Icons.manage_accounts_sharp
                   : Platform.isIOS
-                      ? CupertinoIcons.search
-                      : Icons.search_outlined,
+                      ? CupertinoIcons.person
+                      : Icons.manage_accounts_sharp,
               color: pageNo == 1
                   ? Theme.of(context).primaryColor
                   : Theme.of(context).iconTheme.color,
             ),
             // label: 'Search',
-            label: "Test",
+            label: "Profile",
             // title: Text(
             //   'Search',
             //   style: TextStyle(
