@@ -204,6 +204,7 @@ class ProjectDetailScreen extends StatelessWidget {
                   const Icon(Icons.monetization_on_outlined),
                   'Fundings',
                   '\$${selectedProject.fundings_recieved}' +
+                      ' / ' +
                       '\$${selectedProject.fundings_needed}',
                   17,
                 ),

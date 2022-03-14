@@ -3,49 +3,49 @@ import 'models/users.dart';
 
 const PROJECTS_CATEGORIES = [
   Projects(
-    name: 'Project A',
-    image: 'assets/images/fop.jpg',
+    name: 'Batam Build',
+    image: 'assets/images/batamBuild.jpg',
     gallery: [
       'assets/images/fop.jpg',
       'assets/images/rag.jpg',
       'assets/images/fow.jpg',
     ],
     description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "Don't have enough time to commit to a Global Village trip or looking for a nearer destination? Build with us on Batam Island instead! Batam Build is designed as a short-term alternative for those who are unable to take a long break. Builds can be as short as 1 day, where participants can leave in the morning, build for half a day and return to Singapore in the evening. The maximum trip length for Batam Build is 2 days. Since 2014, Habitat's building efforts in Batam have been focused on transforming Kabil Village, a sub-district of Nongsa located in the Western side of the island. 40% of its over 20,000 residents live in substandard houses built using scrap wood and tin sheets. These small shacks are susceptible to water leaks, floods and sometimes structural collapse during the monsoon season. Habitat aims to improve the standard of living for 1,000 families through the reconstruction of new homes, improving the current water, drainage and electricity system.",
     fundings_recieved: 43000,
     fundings_needed: 100000,
     manpower: "27 / 100",
-    organisation: "Org A",
+    organisation: "Habitat for Humanity Singapore",
   ),
   Projects(
-    name: 'Project B',
-    image: 'assets/images/rag.jpg',
+    name: 'Global Village',
+    image: 'assets/images/globalVillage.jpg',
     gallery: [
-      'assets/images/fop.jpg',
-      'assets/images/rag.jpg',
-      'assets/images/fow.jpg',
+      'assets/images/globalVillage1.jpg',
+      'assets/images/globalVillage2.jpg',
+      'assets/images/globalVillage3.jpg',
     ],
     description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "About Global Village: Building safe & affordable homes for families living in poverty Global Village gives volunteers in Singapore the opportunity to travel abroad and work with low-income communities across Asia-Pacific to improve families' access to decent living conditions. Volunteers will work as a team alongside the families that Habitat partner to build safe and affordable houses that these families can call home. Working side-by-side with the local community also offers the opportunity to immerse yourselves in the local culture and experience daily life in the host community. More importantly, the experience transforms lives: both for the volunteers and for partner families who see that there are “outsiders” who care enough to help them break the cycle of poverty.",
     fundings_recieved: 43000,
     fundings_needed: 100000,
     manpower: "27 / 100",
-    organisation: "Org B",
+    organisation: "Habitat for Humanity Singapore",
   ),
   Projects(
-    name: 'Project C',
+    name: 'V·Village (Virtual Village)',
     image: 'assets/images/fow.jpg',
     gallery: [
-      'assets/images/fop.jpg',
-      'assets/images/rag.jpg',
-      'assets/images/fow.jpg',
+      'assets/images/virtualVillage1.jpg',
+      'assets/images/virtualVillage2.jpg',
+      'assets/images/virtualVillage3.jpg',
     ],
     description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "V·Village (Virtual Village) is a way for you to transport yourself live to a Habitat house building project you support, wherever it may be in the world. Although it has been two years since we have been unable to travel for overseas builds, we still firmly believe that we have a responsibility to fight poverty not just locally but support overseas housing needs. Many families have a hard time thriving at home during the pandemic. Donate and witness the house transformation here in our time lapse photo. Your donation will go a long way to ensure that more homeowners have a safe and secure place to call home.",
     fundings_recieved: 0,
     fundings_needed: 100000,
     manpower: "27 / 100",
-    organisation: "Org C",
+    organisation: "Habitat for Humanity Singapore",
   ),
 ];
 

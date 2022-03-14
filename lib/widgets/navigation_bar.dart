@@ -103,9 +103,9 @@ class _NavigationsBarState extends State<NavigationsBar> {
           BottomNavigationBarItem(
             icon: Icon(
               pageNo == 0 ? Icons.explore : Icons.explore_outlined,
-              color: pageNo == 0
-                  ? Theme.of(context).primaryColor
-                  : Theme.of(context).iconTheme.color,
+              // color: pageNo == 0
+              //     ? Theme.of(context).primaryColor
+              //     : Theme.of(context).iconTheme.color,
               // size: 25.sp,
             ),
             // label: 'Explore',
@@ -121,18 +121,20 @@ class _NavigationsBarState extends State<NavigationsBar> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              // _selectedPageIndex == pageNo
-              pageNo == 1
-                  ? Platform.isIOS
-                      ? CupertinoIcons.video_camera_solid
-                      : Icons.video_camera_back_outlined
-                  : Platform.isIOS
-                      ? CupertinoIcons.video_camera
-                      : Icons.video_camera_back_outlined,
-              color: pageNo == 1
-                  ? Theme.of(context).primaryColor
-                  : Theme.of(context).iconTheme.color,
-            ),
+                // _selectedPageIndex == pageNo
+                pageNo == 1
+                    ? Icons.video_camera_back_outlined
+                    : Icons.video_camera_back_outlined
+                // ? Platform.isIOS
+                //     ? CupertinoIcons.video_camera_solid
+                //     : Icons.video_camera_back_outlined
+                // : Platform.isIOS
+                //     ? CupertinoIcons.video_camera
+                //     : Icons.video_camera_back_outlined,
+                // color: pageNo == 1
+                //     ? Theme.of(context).primaryColor
+                //     : Theme.of(context).iconTheme.color,
+                ),
             // label: 'Search',
             label: "Home Tok",
             // title: Text(
@@ -146,18 +148,20 @@ class _NavigationsBarState extends State<NavigationsBar> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              // _selectedPageIndex == pageNo
-              pageNo == 2
-                  ? Platform.isIOS
-                      ? CupertinoIcons.person
-                      : Icons.manage_accounts_sharp
-                  : Platform.isIOS
-                      ? CupertinoIcons.person
-                      : Icons.manage_accounts_sharp,
-              color: pageNo == 2
-                  ? Theme.of(context).primaryColor
-                  : Theme.of(context).iconTheme.color,
-            ),
+                // _selectedPageIndex == pageNo
+                pageNo == 2
+                    ? Icons.manage_accounts_sharp
+                    : Icons.manage_accounts_sharp
+                //     ? Platform.isIOS
+                //         ? CupertinoIcons.person
+                //         : Icons.manage_accounts_sharp
+                //     : Platform.isIOS
+                //         ? CupertinoIcons.person
+                //         : Icons.manage_accounts_sharp,
+                // color: pageNo == 2
+                //     ? Theme.of(context).primaryColor
+                //     : Theme.of(context).iconTheme.color,
+                ),
             // label: 'Search',
             label: "Profile",
             // title: Text(
