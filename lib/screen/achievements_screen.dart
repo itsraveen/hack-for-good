@@ -1,60 +1,142 @@
 import 'package:flutter/material.dart';
-import 'package:achievement_view/achievement_view.dart';
 
-class AchievementsScreen extends StatefulWidget {
-  static const routeName = '/project-details';
+class AchievementsScreen extends StatelessWidget {
+  static const routeName = '/achievements-details';
 
-  const AchievementsScreen({Key? key}) : super(key: key);
-
-  @override
-  State<AchievementsScreen> createState() => _AchievementsScreenState();
-}
-
-class _AchievementsScreenState extends State<AchievementsScreen> {
-  bool isCircle = false;
-  @override
-  Widget build(BuildContext context) {
-    void show(BuildContext context) {
-      AchievementView(
-        context,
-        title: "Yeaaah!",
-        subTitle: "Training completed successfully! ",
-        isCircle: isCircle,
-        listener: (status) {
-          print(status);
-        },
-      )..show();
-    }
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Achievements'),
-      ),
-      body: Container(
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Checkbox(
-                      value: isCircle,
-                      onChanged: (change) => setState(() {
-                            isCircle = change!;
-                          })),
-                  Text("isCircle")
-                ],
-              ),
-              RaisedButton(
-                  child: Text("Show"),
-                  onPressed: () {
-                    show(context);
-                  })
-            ],
+  Widget buildCompletedAchievementTile(BuildContext context, String title) {
+    return Column(
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(
+            left: 15,
+            top: 15,
+          ),
+          child: CircleAvatar(
+            backgroundColor: Colors.transparent,
+            radius: 50,
+            backgroundImage: AssetImage('assets/images/achievement_done.jpg'),
           ),
         ),
-      ),
+        Container(
+          child: Text(title),
+          padding: const EdgeInsets.only(
+            left: 15,
+            top: 15,
+          ),
+        )
+      ],
     );
+  }
+
+  Widget buildIncompletedAchievementTile(BuildContext context, String title) {
+    return Column(
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(
+            left: 15,
+            top: 15,
+          ),
+          child: CircleAvatar(
+            backgroundColor: Colors.transparent,
+            radius: 50,
+            backgroundImage: AssetImage('assets/images/achievement.jpg'),
+          ),
+        ),
+        Container(
+          child: Text(title),
+          padding: const EdgeInsets.only(
+            left: 15,
+            top: 15,
+          ),
+        )
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Achievements'),
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                child: const Text(
+                  'Basic',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                alignment: Alignment.centerLeft,
+                margin: const EdgeInsets.only(
+                  top: 20.0,
+                  left: 25.0,
+                ),
+              ),
+              Container(
+                child: Row(
+                  children: [
+                    buildCompletedAchievementTile(context, "Challenge 1"),
+                    buildCompletedAchievementTile(context, "Challenge 2"),
+                    buildIncompletedAchievementTile(context, "Challenge 3"),
+                  ],
+                ),
+              ),
+              Container(
+                child: Row(
+                  children: [
+                    buildIncompletedAchievementTile(context, "Challenge 4"),
+                    buildIncompletedAchievementTile(context, "Challenge 5"),
+                    buildCompletedAchievementTile(context, "Challenge 6"),
+                  ],
+                ),
+              ),
+              Container(
+                child: const Text(
+                  'Advanced',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                alignment: Alignment.centerLeft,
+                margin: const EdgeInsets.only(
+                  top: 20.0,
+                  left: 25.0,
+                ),
+              ),
+              Container(
+                child: Row(
+                  children: [
+                    buildIncompletedAchievementTile(context, "Challenge 7"),
+                    buildCompletedAchievementTile(context, "Challenge 8"),
+                    buildIncompletedAchievementTile(context, "Challenge 9"),
+                  ],
+                ),
+              ),
+              Container(
+                child: Row(
+                  children: [
+                    buildIncompletedAchievementTile(context, "Challenge 10"),
+                    buildIncompletedAchievementTile(context, "Challenge 11"),
+                    buildCompletedAchievementTile(context, "Challenge 12"),
+                  ],
+                ),
+              ),
+              Container(
+                child: Row(
+                  children: [
+                    buildIncompletedAchievementTile(context, "Challenge 10"),
+                    buildIncompletedAchievementTile(context, "Challenge 11"),
+                    buildCompletedAchievementTile(context, "Challenge 12"),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ));
   }
 }

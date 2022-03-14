@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/',
       routes: {
         ProjectDetailScreen.routeName: (ctx) => const ProjectDetailScreen(),
-        AchievementsScreen.routeName: (ctx) => const AchievementsScreen(),
+        AchievementsScreen.routeName: (ctx) => AchievementsScreen(),
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(
