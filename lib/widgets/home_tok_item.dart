@@ -71,11 +71,11 @@ class HomeTokItem extends StatelessWidget {
             Positioned(
               bottom: 20,
               // right: -20,
-              left: 165,
+              left: 125,
               child: Container(
                 margin: const EdgeInsets.only(
                   bottom: 20.0,
-                  left: 100.0,
+                  left: 20.0,
                 ),
                 width: 200,
                 // color: Colors.black54,
