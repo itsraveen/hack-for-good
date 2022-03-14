@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../category_data.dart';
+import '../widgets/navigation_bar.dart';
 
 class ProjectDetailScreen extends StatelessWidget {
   Widget buildIconTile(BuildContext context, Icon icon, String title,
@@ -246,6 +247,7 @@ class ProjectDetailScreen extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar: NavigationsBar(0),
     );
   }
 }
