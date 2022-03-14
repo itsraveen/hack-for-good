@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackforgood/screen/chat_detail.dart';
 
 import '../category_data.dart';
 import '../widgets/navigation_bar.dart';
@@ -153,7 +154,13 @@ class ProjectDetailScreen extends StatelessWidget {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(30)),
                             ),
-                            onPressed: () => {},
+                            onPressed: () => {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ChatDetailPage()),
+                              )
+                            },
                           ),
                           const SizedBox(
                             width: 30,

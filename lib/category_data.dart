@@ -6,9 +6,9 @@ const PROJECTS_CATEGORIES = [
     name: 'Batam Build',
     image: 'assets/images/batamBuild.jpg',
     gallery: [
-      'assets/images/fop.jpg',
-      'assets/images/rag.jpg',
-      'assets/images/fow.jpg',
+      'assets/images/batamBuild1.webp',
+      'assets/images/batamBuild2.jpeg',
+      'assets/images/batamBuild3.webp',
     ],
     description:
         "Don't have enough time to commit to a Global Village trip or looking for a nearer destination? Build with us on Batam Island instead! Batam Build is designed as a short-term alternative for those who are unable to take a long break. Builds can be as short as 1 day, where participants can leave in the morning, build for half a day and return to Singapore in the evening. The maximum trip length for Batam Build is 2 days. Since 2014, Habitat's building efforts in Batam have been focused on transforming Kabil Village, a sub-district of Nongsa located in the Western side of the island. 40% of its over 20,000 residents live in substandard houses built using scrap wood and tin sheets. These small shacks are susceptible to water leaks, floods and sometimes structural collapse during the monsoon season. Habitat aims to improve the standard of living for 1,000 families through the reconstruction of new homes, improving the current water, drainage and electricity system.",
@@ -34,7 +34,7 @@ const PROJECTS_CATEGORIES = [
   ),
   Projects(
     name: 'V·Village (Virtual Village)',
-    image: 'assets/images/fow.jpg',
+    image: 'assets/images/habitat1.jpeg',
     gallery: [
       'assets/images/virtualVillage1.jpg',
       'assets/images/virtualVillage2.jpg',
