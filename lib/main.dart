@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hackforgood/screen/achievements_screen.dart';
+import 'package:hackforgood/screen/family_detail_screen.dart';
 import 'package:hackforgood/screen/home_tok.dart';
 
 import './category_data.dart';
 import './models/projects.dart';
 import './screen/project_detail_screen.dart';
 import './screen/projects_screen.dart';
+import './screen/family_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -37,6 +39,8 @@ class _MyAppState extends State<MyApp> {
         ProjectDetailScreen.routeName: (ctx) => const ProjectDetailScreen(),
         AchievementsScreen.routeName: (ctx) => const AchievementsScreen(),
         HomeTok.routeName: (ctx) => HomeTok(),
+        FamilyDetailScreen.routeName: (ctx) => const FamilyDetailScreen(),
+        FamilyScreen.routeName: (ctx) => const FamilyScreen(),
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(

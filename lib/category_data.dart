@@ -1,5 +1,24 @@
+import 'package:hackforgood/models/family.dart';
+
 import 'models/projects.dart';
 import 'models/users.dart';
+
+const FAMILY_CATEGORIES = [
+  Family(
+      name: 'Siti Sara',
+      image: 'assets/images/famMain.jpg',
+      gallery: [
+        'assets/images/fam1.jpg',
+        'assets/images/fam2.jpg',
+        'assets/images/fam3.jpg',
+      ],
+      description:
+          "Homeowner in Batam. When Habitat Singapore visited her in 2017, she had moved into her new Habitat house and started her own home business.",
+      organisation: "Habitat for Humanity Singapore",
+      noOfPax: 5,
+      noOfRooms: 4,
+      householdIncome: 1000.0)
+];
 
 const PROJECTS_CATEGORIES = [
   Projects(
