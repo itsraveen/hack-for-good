@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:hackforgood/screen/achievements_screen.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../category_data.dart';
 
 class ProfileItem extends StatelessWidget {
   const ProfileItem({Key? key}) : super(key: key);
+
+  void showAllAchievements(BuildContext ctx) {
+    Navigator.of(ctx).pushNamed(
+      AchievementsScreen.routeName,
+      arguments: {},
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,14 +95,29 @@ class ProfileItem extends StatelessWidget {
           thickness: 1,
           height: 16,
         ),
-
         Container(
           width: double.infinity,
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           height: 50,
-          child: RaisedButton(
-            color: Colors.blue.shade200,
-            onPressed: () => {},
+          child: ElevatedButton(
+            style: ButtonStyle(
+              foregroundColor: MaterialStateProperty.all<Color>(
+                Colors.white,
+              ),
+              backgroundColor: MaterialStateProperty.all<Color>(
+                Colors.blue.shade200,
+              ),
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0),
+                  // side: const BorderSide(
+                  //   color: Colors.red,
+                  // ),
+                ),
+              ),
+            ),
+            // color: Colors.blue.shade200,
+            onPressed: () => showAllAchievements(context),
             child: Container(
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(
@@ -108,7 +132,7 @@ class ProfileItem extends StatelessWidget {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Icon(Icons.wine_bar_outlined),
+                      const Icon(MdiIcons.trophyVariant),
                       Expanded(
                         child: Container(
                           padding: const EdgeInsets.only(
@@ -132,49 +156,67 @@ class ProfileItem extends StatelessWidget {
             ),
           ),
         ),
-
-        // Row(
-        //   children: [
-        // const Icon(Icons.wine_bar_outlined),
         Container(
           width: double.infinity,
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           height: 50,
-          child: RaisedButton(
-            padding: const EdgeInsets.symmetric(
-              vertical: 15,
-              horizontal: 30,
-            ),
-            color: Colors.blue.shade200,
-            child: Column(
-              children: [
-                SizedBox(
-                  width: double.infinity,
-                  child: Container(
-                    child: const Text(
-                      'See all achievements',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 15,
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(
-                  5,
+          child: ElevatedButton(
+            style: ButtonStyle(
+              foregroundColor: MaterialStateProperty.all<Color>(
+                Colors.white,
+              ),
+              backgroundColor: MaterialStateProperty.all<Color>(
+                Colors.blue.shade200,
+              ),
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0),
+                  // side: const BorderSide(
+                  //   color: Colors.red,
+                  // ),
                 ),
               ),
             ),
+            // color: Colors.blue.shade200,
             onPressed: () => {},
+            child: Container(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(
+                    50,
+                  ),
+                ),
+              ),
+              padding: const EdgeInsets.only(top: 12, left: 10, right: 15),
+              child: Column(
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Icon(MdiIcons.currencyUsd),
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.only(
+                            left: 15,
+                            top: 2,
+                          ),
+                          child: const Text(
+                            'See your donations',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 17,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
-        //   ],
-        // ),
       ],
     );
   }
