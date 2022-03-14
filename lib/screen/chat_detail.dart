@@ -8,11 +8,14 @@ class ChatDetailPage extends StatefulWidget {
 }
 
 class _ChatDetailPageState extends State<ChatDetailPage> {
+  final _controller = TextEditingController();
+  var _enteredMessage = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Chat Detail"),
+          // title: Text("Chat Detail"),
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
@@ -25,20 +28,20 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_back,
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 2,
                   ),
-                  CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        "<https://randomuser.me/api/portraits/men/5.jpg>"),
+                  const CircleAvatar(
+                    // backgroundImage: NetworkImage("<rav.jpg>"),
+                    backgroundImage: AssetImage("assets/images/rav.jpg"),
                     maxRadius: 20,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 12,
                   ),
                   Expanded(
@@ -46,12 +49,12 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text(
+                        const Text(
                           "Kriss Benwat",
                           style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.w600),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 6,
                         ),
                         Text(
@@ -62,7 +65,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                       ],
                     ),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.settings,
                     color: Colors.black54,
                   ),
@@ -77,12 +80,12 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
             ListView.builder(
               itemCount: messages.length,
               shrinkWrap: true,
-              padding: EdgeInsets.only(top: 10, bottom: 10),
-              physics: NeverScrollableScrollPhysics(),
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 return Container(
-                  padding:
-                      EdgeInsets.only(left: 14, right: 14, top: 10, bottom: 10),
+                  padding: const EdgeInsets.only(
+                      left: 14, right: 14, top: 10, bottom: 10),
                   child: Align(
                     alignment: (messages[index].messageType == "receiver"
                         ? Alignment.topLeft
@@ -94,29 +97,16 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                             ? Colors.grey.shade200
                             : Colors.blue[200]),
                       ),
-                      padding: EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(16),
                       child: Text(
                         messages[index].messageContent,
-                        style: TextStyle(fontSize: 15),
+                        style: const TextStyle(fontSize: 15),
                       ),
                     ),
                   ),
                 );
               },
             ),
-            // ListView.builder(
-            //   itemCount: messages.length,
-            //   shrinkWrap: true,
-            //   padding: EdgeInsets.only(top: 10, bottom: 10),
-            //   physics: NeverScrollableScrollPhysics(),
-            //   itemBuilder: (context, index) {
-            //     return Container(
-            //       padding:
-            //           EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 10),
-            //       child: Text(messages[index].messageContent),
-            //     );
-            //   },
-            // ),
             Align(
               alignment: Alignment.bottomLeft,
               child: Container(
@@ -135,37 +125,78 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                           color: Colors.lightBlue,
                           borderRadius: BorderRadius.circular(30),
                         ),
-                        child: Icon(
+                        child: const Icon(
                           Icons.add,
                           color: Colors.white,
                           size: 20,
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 15,
                     ),
                     Expanded(
                       child: TextField(
-                        decoration: InputDecoration(
+                        controller: _controller,
+                        decoration: const InputDecoration(
                             hintText: "Write message...",
                             hintStyle: TextStyle(color: Colors.black54),
                             border: InputBorder.none),
+                        onChanged: (value) {
+                          setState(() {
+                            _enteredMessage = value;
+                          });
+                        },
                       ),
                     ),
-                    SizedBox(
-                      width: 15,
-                    ),
-                    FloatingActionButton(
-                      onPressed: () {},
-                      child: Icon(
+                    IconButton(
+                      color: Theme.of(context).primaryColor,
+                      icon: const Icon(
                         Icons.send,
-                        color: Colors.white,
-                        size: 18,
                       ),
-                      backgroundColor: Colors.blue,
-                      elevation: 0,
+                      onPressed: _enteredMessage.trim().isEmpty
+                          ? null
+                          : () {
+                              setState(
+                                () {
+                                  messages.add(
+                                    ChatMessage(
+                                        messageContent: _enteredMessage,
+                                        messageType: "sender"),
+                                  );
+                                },
+                              );
+                            },
                     ),
+                    // const Expanded(
+                    //   child: TextField(
+                    //     // controller: _controller,
+                    //   decoration: InputDecoration(
+                    //       hintText: "Write message...",
+                    //       hintStyle: TextStyle(color: Colors.black54),
+                    //       border: InputBorder.none),
+                    // ),
+                    // ),
+                    // const SizedBox(
+                    //   width: 15,
+                    // ),
+                    // FloatingActionButton(
+                    //   onPressed: () {
+                    //     setState(() {
+                    //       messages.add(
+                    //         ChatMessage(
+                    //             messageContent: "hello", messageType: "sender"),
+                    //       );
+                    //     });
+                    //   },
+                    //   child: const Icon(
+                    //     Icons.send,
+                    //     color: Colors.white,
+                    //     size: 18,
+                    //   ),
+                    //   backgroundColor: Colors.blue,
+                    //   elevation: 0,
+                    // ),
                   ],
                 ),
               ),
