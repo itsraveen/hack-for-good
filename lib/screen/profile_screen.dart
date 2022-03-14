@@ -26,7 +26,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       body: Column(
         children: const [ProfileItem()],
       ),
-      bottomNavigationBar: NavigationsBar(1),
+      bottomNavigationBar: NavigationsBar(2),
     );
   }
 }

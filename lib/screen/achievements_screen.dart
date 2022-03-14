@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class AchievementsScreen extends StatelessWidget {
   static const routeName = '/achievements-details';
 
+  const AchievementsScreen({Key? key}) : super(key: key);
+
   Widget buildCompletedAchievementTile(BuildContext context, String title) {
     return Column(
       children: [

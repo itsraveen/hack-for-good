@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackforgood/screen/achievements_screen.dart';
+import 'package:hackforgood/screen/home_tok.dart';
 
 import './category_data.dart';
 import './models/projects.dart';
@@ -34,7 +35,8 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/',
       routes: {
         ProjectDetailScreen.routeName: (ctx) => const ProjectDetailScreen(),
-        AchievementsScreen.routeName: (ctx) => AchievementsScreen(),
+        AchievementsScreen.routeName: (ctx) => const AchievementsScreen(),
+        HomeTok.routeName: (ctx) => HomeTok(),
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(

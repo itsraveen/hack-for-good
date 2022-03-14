@@ -10,7 +10,7 @@ class ProjectItem extends StatelessWidget {
 
   const ProjectItem(this.title, this.image);
 
-  void selectCampus(BuildContext ctx) {
+  void selectProject(BuildContext ctx) {
     Navigator.of(ctx).pushNamed(
       ProjectDetailScreen.routeName,
       arguments: {
@@ -25,7 +25,7 @@ class ProjectItem extends StatelessWidget {
     var width = double.infinity;
     var height = MediaQuery.of(context).size.height / 3 - 100;
     return InkWell(
-      onTap: () => selectCampus(context),
+      onTap: () => selectProject(context),
       splashColor: Colors.amber.shade200,
       borderRadius: BorderRadius.circular(5),
       child: Container(

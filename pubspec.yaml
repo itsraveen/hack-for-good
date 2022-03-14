@@ -35,6 +35,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   sizer: ^2.0.15
   material_design_icons_flutter: ^5.0.6595
+  percent_indicator: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +65,7 @@ flutter:
     - assets/images/fow.jpg
     - assets/images/achievement_done.jpg
     - assets/images/achievement.jpg
+    - assets/images/rav.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

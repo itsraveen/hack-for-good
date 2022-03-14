@@ -12,8 +12,10 @@ const PROJECTS_CATEGORIES = [
     ],
     description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    fundings: "\$43,000 / \$100,000",
+    fundings_recieved: 43000,
+    fundings_needed: 100000,
     manpower: "27 / 100",
+    organisation: "Org A",
   ),
   Projects(
     name: 'Project B',
@@ -25,8 +27,10 @@ const PROJECTS_CATEGORIES = [
     ],
     description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    fundings: "\$43,000 / \$100,000",
+    fundings_recieved: 43000,
+    fundings_needed: 100000,
     manpower: "27 / 100",
+    organisation: "Org B",
   ),
   Projects(
     name: 'Project C',
@@ -38,8 +42,10 @@ const PROJECTS_CATEGORIES = [
     ],
     description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    fundings: "\$43,000 / \$100,000",
+    fundings_recieved: 0,
+    fundings_needed: 100000,
     manpower: "27 / 100",
+    organisation: "Org C",
   ),
 ];
 

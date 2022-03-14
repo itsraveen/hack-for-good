@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hackforgood/screen/home_tok.dart';
 
 import '../screen/profile_screen.dart';
 import '../screen/projects_screen.dart';
@@ -29,6 +30,11 @@ class _NavigationsBarState extends State<NavigationsBar> {
       // 'appBar':,
     },
     {
+      'page': HomeTok(),
+      'title': 'Home Tok',
+      // 'appBar':,
+    },
+    {
       'page': const ProfileScreen(),
       'title': 'Projects',
       // 'appBar':,
@@ -45,7 +51,8 @@ class _NavigationsBarState extends State<NavigationsBar> {
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
-          pageBuilder: (context, animation1, animation2) => ProjectsScreen(),
+          pageBuilder: (context, animation1, animation2) =>
+              const ProjectsScreen(),
           transitionDuration: const Duration(seconds: 2),
         ),
       );
@@ -54,7 +61,17 @@ class _NavigationsBarState extends State<NavigationsBar> {
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
-          pageBuilder: (context, animation1, animation2) => ProfileScreen(),
+          pageBuilder: (context, animation1, animation2) => HomeTok(),
+          transitionDuration: const Duration(seconds: 2),
+        ),
+      );
+    } else if (_selectedPageIndex == 2) {
+      // Navigator.of(context).popAndPushNamed(SearchScreen.routeName);
+      Navigator.pushReplacement(
+        context,
+        PageRouteBuilder(
+          pageBuilder: (context, animation1, animation2) =>
+              const ProfileScreen(),
           transitionDuration: const Duration(seconds: 2),
         ),
       );
@@ -107,12 +124,37 @@ class _NavigationsBarState extends State<NavigationsBar> {
               // _selectedPageIndex == pageNo
               pageNo == 1
                   ? Platform.isIOS
+                      ? CupertinoIcons.video_camera_solid
+                      : Icons.video_camera_back_outlined
+                  : Platform.isIOS
+                      ? CupertinoIcons.video_camera
+                      : Icons.video_camera_back_outlined,
+              color: pageNo == 1
+                  ? Theme.of(context).primaryColor
+                  : Theme.of(context).iconTheme.color,
+            ),
+            // label: 'Search',
+            label: "Home Tok",
+            // title: Text(
+            //   'Search',
+            //   style: TextStyle(
+            //     color: Colors.grey.shade600,
+            //     fontSize: 0,
+            //   ),
+            // ),
+            backgroundColor: Theme.of(context).backgroundColor,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              // _selectedPageIndex == pageNo
+              pageNo == 2
+                  ? Platform.isIOS
                       ? CupertinoIcons.person
                       : Icons.manage_accounts_sharp
                   : Platform.isIOS
                       ? CupertinoIcons.person
                       : Icons.manage_accounts_sharp,
-              color: pageNo == 1
+              color: pageNo == 2
                   ? Theme.of(context).primaryColor
                   : Theme.of(context).iconTheme.color,
             ),
