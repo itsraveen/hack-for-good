@@ -66,6 +66,14 @@ flutter:
     - assets/images/achievement_done.jpg
     - assets/images/achievement.jpg
     - assets/images/rav.jpg
+    - assets/images/batamBuild.jpg
+    - assets/images/globalVillage.jpg
+    - assets/images/globalVillage1.jpg
+    - assets/images/globalVillage2.jpg
+    - assets/images/globalVillage3.jpg
+    - assets/images/virtualVillage1.jpg
+    - assets/images/virtualVillage2.jpg
+    - assets/images/virtualVillage3.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
