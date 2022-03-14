@@ -52,7 +52,7 @@ const PROJECTS_CATEGORIES = [
 const USERS = [
   Users(
     name: "Frank William",
-    image: 'assets/images/fop.jpg',
+    image: 'assets/images/rav.jpg',
     amountDonated: "\$43.70",
   )
 ];
