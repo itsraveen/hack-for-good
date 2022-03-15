@@ -1,4 +1,3 @@
-// Habitouch Project
 import 'package:flutter/material.dart';
 import 'package:hackforgood/screen/achievements_screen.dart';
 import 'package:hackforgood/screen/family_detail_screen.dart';
@@ -30,7 +29,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'HOwGO',
+      title: 'Habitouch',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
