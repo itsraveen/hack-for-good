@@ -22,7 +22,7 @@ const FAMILY_CATEGORIES = [
       messages: [])
 ];
 
-const PROJECTS_CATEGORIES = [
+var PROJECTS_CATEGORIES = [
   Projects(
     name: 'Batam Build',
     image: 'assets/images/batamBuild.jpg',

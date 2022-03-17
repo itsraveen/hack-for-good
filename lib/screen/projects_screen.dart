@@ -7,6 +7,7 @@ import '../widgets/project_item.dart';
 import '../widgets/navigation_bar.dart';
 
 class ProjectsScreen extends StatelessWidget {
+  static const routeName = '/';
   const ProjectsScreen({Key? key}) : super(key: key);
 
   @override

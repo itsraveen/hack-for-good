@@ -11,37 +11,44 @@ import './models/projects.dart';
 import './screen/project_detail_screen.dart';
 import './screen/projects_screen.dart';
 import './screen/family_screen.dart';
+import './providers/projects_provider.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget with ChangeNotifier {
+//   const MyApp({Key? key}) : super(key: key);
 
-  @override
-  _MyAppState createState() => _MyAppState();
-}
+//   @override
+//   _MyAppState createState() => _MyAppState();
+// }
 
-class _MyAppState extends State<MyApp> {
+// class _MyAppState extends State<MyApp> with ChangeNotifier {
   final List<Projects> _availableProjects = PROJECTS_CATEGORIES;
 
   @override
-  Widget build(BuildContext context) => ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
-      builder: (context, _) {
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (ctx) => ProjectsProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => ThemeProvider(),
+        ),
+      ],
+      builder: (context, child) {
         final themeProvider = Provider.of<ThemeProvider>(context);
-
         return MaterialApp(
           title: 'Habitouch',
-          // theme: ThemeData(
-          //   primarySwatch: Colors.blue,
-          // ),
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+
           themeMode: themeProvider.themeMode,
-          theme: MyThemes.lightTheme,
+          // theme: MyThemes.lightTheme,
           darkTheme: MyThemes.darkTheme,
-          // home: CampusScreen(),
-          initialRoute: '/',
           routes: {
             ProjectDetailScreen.routeName: (ctx) => ProjectDetailScreen(),
             AchievementsScreen.routeName: (ctx) => const AchievementsScreen(),
@@ -50,11 +57,44 @@ class _MyAppState extends State<MyApp> {
             FamilyScreen.routeName: (ctx) => const FamilyScreen(),
             ChatDetailPage.routeName: (ctx) => ChatDetailPage(),
           },
+          initialRoute: '/',
           onUnknownRoute: (settings) {
             return MaterialPageRoute(
               builder: (ctx) => const ProjectsScreen(),
             );
           },
         );
-      });
+      },
+    );
+  }
+
+  // create: (context) => ThemeProvider(),
+  // builder: (context, _) {
+  // final themeProvider = Provider.of<ThemeProvider>(context);
+
+  // return MaterialApp(
+  //   title: 'Habitouch',
+  //   theme: ThemeData(
+  //     primarySwatch: Colors.blue,
+  //   ),
+  //   themeMode: themeProvider.themeMode,
+  //   theme: MyThemes.lightTheme,
+  //   darkTheme: MyThemes.darkTheme,
+  //   // home: CampusScreen(),
+  //   initialRoute: '/',
+  // routes: {
+  //   ProjectDetailScreen.routeName: (ctx) => ProjectDetailScreen(),
+  //   AchievementsScreen.routeName: (ctx) => const AchievementsScreen(),
+  //   HomeTok.routeName: (ctx) => HomeTok(),
+  //   FamilyDetailScreen.routeName: (ctx) => const FamilyDetailScreen(),
+  //   FamilyScreen.routeName: (ctx) => const FamilyScreen(),
+  //   ChatDetailPage.routeName: (ctx) => ChatDetailPage(),
+  // },
+  //   onUnknownRoute: (settings) {
+  //     return MaterialPageRoute(
+  //       builder: (ctx) => const ProjectsScreen(),
+  //     );
+  //   },
+  // );
+  // });
 }

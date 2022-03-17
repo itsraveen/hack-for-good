@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hackforgood/providers/theme_provider.dart';
 import 'package:hackforgood/screen/chat_detail_screen.dart';
+import 'package:provider/provider.dart';
 
 import '../category_data.dart';
+import '../providers/projects_provider.dart';
 import '../widgets/navigation_bar.dart';
 
 class ProjectDetailScreen extends StatelessWidget {
@@ -84,12 +86,15 @@ class ProjectDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final roomsProvider = Provider.of<ProjectsProvider>(context);
+
     final routeArgs =
         ModalRoute.of(context)?.settings.arguments as Map<String, String>;
     final projectTitle = routeArgs['title'];
     final projectImage = routeArgs['image'];
     final selectedProject = PROJECTS_CATEGORIES
         .firstWhere((project) => project.name == projectTitle);
+    bool isFav = roomsProvider.isProjFav(selectedProject.name);
 
     return Scaffold(
       // appBar: AppBar(
@@ -192,46 +197,20 @@ class ProjectDetailScreen extends StatelessWidget {
                           Container(
                             margin: const EdgeInsets.only(bottom: 10.0),
                             alignment: Alignment.center,
-                            child: !selected
-                                ? IconButton(
-                                    icon: const Icon(Icons.bookmark_outline),
-                                    iconSize: 50,
-                                    color: Colors.blue,
-                                    splashColor: Colors.yellow,
-                                    onPressed: () {
-                                      selected = true;
-                                      const snackBar = SnackBar(
-                                        content: Text(
-                                          'Added to favourites!',
-                                          style: TextStyle(
-                                            fontSize: 15.0,
-                                          ),
-                                        ),
-                                      );
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(snackBar);
-                                    },
-                                  )
-                                : IconButton(
-                                    icon: const Icon(
-                                      Icons.bookmark,
-                                    ),
-                                    iconSize: 40,
-                                    color: Colors.blue,
-                                    splashColor: Colors.yellow,
-                                    onPressed: () {
-                                      const snackBar = SnackBar(
-                                        content: Text(
-                                          'Added to favourites!',
-                                          style: TextStyle(
-                                            fontSize: 15.0,
-                                          ),
-                                        ),
-                                      );
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(snackBar);
-                                    },
-                                  ),
+                            child: IconButton(
+                                iconSize: 50,
+                                color: Colors.blue,
+                                splashColor: Colors.yellow,
+                                onPressed: () {
+                                  roomsProvider
+                                      .toggleFavourite(selectedProject.name);
+                                },
+                                icon: Icon(
+                                  isFav
+                                      ? Icons.favorite
+                                      : Icons.favorite_border,
+                                  size: 18,
+                                )),
                           ),
                         ],
                       ),
