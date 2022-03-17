@@ -1,3 +1,5 @@
+import 'package:hackforgood/models/chat_message.dart';
+
 class Projects {
   final String name;
   final String image;
@@ -7,6 +9,7 @@ class Projects {
   final int fundings_needed;
   final String manpower;
   final String organisation;
+  final List<ChatMessage> messages;
 
   const Projects({
     required this.name,
@@ -17,5 +20,6 @@ class Projects {
     required this.fundings_needed,
     required this.manpower,
     required this.organisation,
+    required this.messages,
   });
 }

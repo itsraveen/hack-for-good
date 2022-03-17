@@ -42,7 +42,7 @@ class ProjectItem extends StatelessWidget {
               child: Image.asset(
                 image,
                 height: height,
-                width: width,
+                width: 400,
                 fit: BoxFit.cover,
               ),
             ),

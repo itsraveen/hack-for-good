@@ -1,4 +1,5 @@
 import 'package:hackforgood/models/family.dart';
+// import 'package:hackforgood/models/chat_message.dart';
 
 import 'models/projects.dart';
 import 'models/users.dart';
@@ -17,7 +18,8 @@ const FAMILY_CATEGORIES = [
       organisation: "Habitat for Humanity Singapore",
       noOfPax: 5,
       noOfRooms: 4,
-      householdIncome: 1000.0)
+      householdIncome: 1000.0,
+      messages: [])
 ];
 
 const PROJECTS_CATEGORIES = [
@@ -35,6 +37,7 @@ const PROJECTS_CATEGORIES = [
     fundings_needed: 100000,
     manpower: "27 / 100",
     organisation: "Habitat for Humanity Singapore",
+    messages: [],
   ),
   Projects(
     name: 'Global Village',
@@ -50,6 +53,7 @@ const PROJECTS_CATEGORIES = [
     fundings_needed: 100000,
     manpower: "27 / 100",
     organisation: "Habitat for Humanity Singapore",
+    messages: [],
   ),
   Projects(
     name: 'V·Village (Virtual Village)',
@@ -65,6 +69,7 @@ const PROJECTS_CATEGORIES = [
     fundings_needed: 100000,
     manpower: "27 / 100",
     organisation: "Habitat for Humanity Singapore",
+    messages: [],
   ),
 ];
 

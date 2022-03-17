@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackforgood/screen/achievements_screen.dart';
+import 'package:hackforgood/screen/chat_detail_screen.dart';
 import 'package:hackforgood/screen/family_detail_screen.dart';
 import 'package:hackforgood/screen/home_tok.dart';
 
@@ -38,6 +39,7 @@ class _MyAppState extends State<MyApp> {
         HomeTok.routeName: (ctx) => HomeTok(),
         FamilyDetailScreen.routeName: (ctx) => const FamilyDetailScreen(),
         FamilyScreen.routeName: (ctx) => const FamilyScreen(),
+        ChatDetailPage.routeName: (ctx) => ChatDetailPage(),
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(

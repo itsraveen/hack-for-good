@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackforgood/screen/chat_detail.dart';
+import 'package:hackforgood/screen/chat_detail_screen.dart';
 
 import '../category_data.dart';
 import '../widgets/navigation_bar.dart';

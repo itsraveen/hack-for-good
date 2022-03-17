@@ -1,21 +1,31 @@
 import 'package:flutter/material.dart';
 
+import '../category_data.dart';
 import '../models/chat_message.dart';
 
-class ChatDetailPage extends StatefulWidget {
-  @override
-  _ChatDetailPageState createState() => _ChatDetailPageState();
-}
+class ChatDetailPage extends StatelessWidget {
+  ChatDetailPage({Key? key}) : super(key: key);
+  static const routeName = '/chat-screen';
 
-class _ChatDetailPageState extends State<ChatDetailPage> {
+//   @override
+//   _ChatDetailPageState createState() => _ChatDetailPageState();
+// }
+
+// class _ChatDetailPageState extends State<ChatDetailPage> {
   final _controller = TextEditingController();
   var _enteredMessage = "";
 
   @override
   Widget build(BuildContext context) {
+    final routeArgs =
+        ModalRoute.of(context)?.settings.arguments as Map<String, String>;
+    final String? projectTitle = routeArgs['title'];
+    final selectedProject = PROJECTS_CATEGORIES
+        .firstWhere((project) => project.name == projectTitle);
+
     return Scaffold(
         appBar: AppBar(
-          // title: Text("Chat Detail"),
+          // title: Text(projectTitle),
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
@@ -58,7 +68,8 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                           height: 6,
                         ),
                         Text(
-                          "Online",
+                          // "Online",
+                          selectedProject.messages.length.toString(),
                           style: TextStyle(
                               color: Colors.grey.shade600, fontSize: 13),
                         ),
@@ -78,7 +89,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
         body: Stack(
           children: <Widget>[
             ListView.builder(
-              itemCount: messages.length,
+              itemCount: selectedProject.messages.length,
               shrinkWrap: true,
               padding: const EdgeInsets.only(top: 10, bottom: 10),
               physics: const NeverScrollableScrollPhysics(),
@@ -87,19 +98,21 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                   padding: const EdgeInsets.only(
                       left: 14, right: 14, top: 10, bottom: 10),
                   child: Align(
-                    alignment: (messages[index].messageType == "receiver"
+                    alignment: (selectedProject.messages[index].messageType ==
+                            "receiver"
                         ? Alignment.topLeft
                         : Alignment.topRight),
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: (messages[index].messageType == "receiver"
+                        color: (selectedProject.messages[index].messageType ==
+                                "receiver"
                             ? Colors.grey.shade200
                             : Colors.blue[200]),
                       ),
                       padding: const EdgeInsets.all(16),
                       child: Text(
-                        messages[index].messageContent,
+                        selectedProject.messages[index].messageContent,
                         style: const TextStyle(fontSize: 15),
                       ),
                     ),
@@ -143,9 +156,9 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                             hintStyle: TextStyle(color: Colors.black54),
                             border: InputBorder.none),
                         onChanged: (value) {
-                          setState(() {
-                            _enteredMessage = value;
-                          });
+                          // setState(() {
+                          _enteredMessage = value;
+                          // });
                         },
                       ),
                     ),
@@ -157,15 +170,15 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                       onPressed: _enteredMessage.trim().isEmpty
                           ? null
                           : () {
-                              setState(
-                                () {
-                                  messages.add(
-                                    ChatMessage(
-                                        messageContent: _enteredMessage,
-                                        messageType: "sender"),
-                                  );
-                                },
+                              // setState(
+                              //   () {
+                              selectedProject.messages.add(
+                                ChatMessage(
+                                    messageContent: _enteredMessage,
+                                    messageType: "sender"),
                               );
+                              //   },
+                              // );
                             },
                     ),
                     // const Expanded(
@@ -205,21 +218,3 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
         ));
   }
 }
-
-List<ChatMessage> messages = [
-  ChatMessage(messageContent: "Hello, Will", messageType: "receiver"),
-  ChatMessage(
-      messageContent:
-          "What kind of donations do you need? We're happy to help!",
-      messageType: "receiver"),
-  ChatMessage(
-      messageContent:
-          "Hey Kriss, we have encountered some issues with pumbling, do you know any contacts?",
-      messageType: "sender"),
-  ChatMessage(
-      messageContent: "Yep, I can send you over the number",
-      messageType: "receiver"),
-  ChatMessage(
-      messageContent: "That's great, that will go a long way for us :)!",
-      messageType: "sender"),
-];
