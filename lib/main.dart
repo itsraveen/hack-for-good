@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackforgood/providers/theme_provider.dart';
 import 'package:hackforgood/screen/achievements_screen.dart';
 import 'package:hackforgood/screen/chat_detail_screen.dart';
 import 'package:hackforgood/screen/family_detail_screen.dart';
@@ -28,9 +29,12 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Habitouch',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      // theme: ThemeData(
+      //   primarySwatch: Colors.blue,
+      // ),
+      themeMode: ThemeMode.system,
+      theme: MyThemes.lightTheme,
+      darkTheme: MyThemes.darkTheme,
       // home: CampusScreen(),
       initialRoute: '/',
       routes: {

@@ -23,6 +23,7 @@ class ProjectsScreen extends StatelessWidget {
               );
             },
           ),
+          ChangeThemeButtonWidget(),
         ],
       ),
       body: Column(
