@@ -78,7 +78,7 @@ class ProjectDetailScreen extends StatelessWidget {
   }
 
   static const routeName = '/project-details';
-  const ProjectDetailScreen({Key? key}) : super(key: key);
+  ProjectDetailScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -185,7 +185,7 @@ class ProjectDetailScreen extends StatelessWidget {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(30)),
                             ),
-                            onPressed: () => {},
+                            onPressed: () => startAddNewDonation(context),
                           ),
                         ],
                       ),
@@ -260,4 +260,66 @@ class ProjectDetailScreen extends StatelessWidget {
       bottomNavigationBar: NavigationsBar(0),
     );
   }
+
+  final _amountController = TextEditingController();
+
+  startAddNewDonation(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Donate Now'),
+          content: TextField(
+            controller: _amountController,
+            keyboardType: TextInputType.number,
+          ),
+          actions: [
+            ElevatedButton(
+              style: ButtonStyle(
+                foregroundColor: MaterialStateProperty.all<Color>(
+                  Colors.white,
+                ),
+                backgroundColor: MaterialStateProperty.all<Color>(
+                  Colors.blue.shade200,
+                ),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                    // side: const BorderSide(
+                    //   color: Colors.red,
+                    // ),
+                  ),
+                ),
+              ),
+              child: const Text("Submit"),
+              onPressed: () {
+                if (_amountController.text.isEmpty ||
+                    double.parse(_amountController.text) <= 0) {
+                } else {
+                  Navigator.of(context).pop();
+                  _amountController.clear();
+                }
+              },
+            )
+          ],
+          // onTap: () {},
+          // child: const Donation(),
+          // behavior: HitTestBehavior.opaque,
+        );
+      },
+    );
+  }
+
+  // _submitData(ctx) {
+  //   if (_amountController.text.isEmpty) {
+  //     return;
+  //   }
+  //   final enteredAmount = double.parse(_amountController.text);
+
+  //   if (enteredAmount <= 0) {
+  //     return;
+  //   }
+
+  //   Navigator.of(ctx).pop();
+  // }
 }

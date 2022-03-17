@@ -68,8 +68,8 @@ class ChatDetailPage extends StatelessWidget {
                           height: 6,
                         ),
                         Text(
-                          // "Online",
-                          selectedProject.messages.length.toString(),
+                          "Online",
+                          // selectedProject.messages.length.toString(),
                           style: TextStyle(
                               color: Colors.grey.shade600, fontSize: 13),
                         ),
