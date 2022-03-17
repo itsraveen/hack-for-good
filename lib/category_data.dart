@@ -56,7 +56,7 @@ const PROJECTS_CATEGORIES = [
     messages: [],
   ),
   Projects(
-    name: 'V·Village (Virtual Village)',
+    name: 'V·Village',
     image: 'assets/images/habitat1.jpeg',
     gallery: [
       'assets/images/virtualVillage1.jpg',

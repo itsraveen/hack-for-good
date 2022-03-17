@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
       // home: CampusScreen(),
       initialRoute: '/',
       routes: {
-        ProjectDetailScreen.routeName: (ctx) => const ProjectDetailScreen(),
+        ProjectDetailScreen.routeName: (ctx) => ProjectDetailScreen(),
         AchievementsScreen.routeName: (ctx) => const AchievementsScreen(),
         HomeTok.routeName: (ctx) => HomeTok(),
         FamilyDetailScreen.routeName: (ctx) => const FamilyDetailScreen(),

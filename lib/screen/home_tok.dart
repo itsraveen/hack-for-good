@@ -15,7 +15,7 @@ class HomeTok extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Tok'),
+        title: Text('HabiTok'),
       ),
       body: Container(
         // padding: EdgeInsets.all(20.0),
