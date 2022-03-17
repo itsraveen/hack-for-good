@@ -4,6 +4,7 @@ import 'package:hackforgood/screen/achievements_screen.dart';
 import 'package:hackforgood/screen/chat_detail_screen.dart';
 import 'package:hackforgood/screen/family_detail_screen.dart';
 import 'package:hackforgood/screen/home_tok.dart';
+import 'package:provider/provider.dart';
 
 import './category_data.dart';
 import './models/projects.dart';
@@ -26,30 +27,34 @@ class _MyAppState extends State<MyApp> {
   final List<Projects> _availableProjects = PROJECTS_CATEGORIES;
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Habitouch',
-      // theme: ThemeData(
-      //   primarySwatch: Colors.blue,
-      // ),
-      themeMode: ThemeMode.system,
-      theme: MyThemes.lightTheme,
-      darkTheme: MyThemes.darkTheme,
-      // home: CampusScreen(),
-      initialRoute: '/',
-      routes: {
-        ProjectDetailScreen.routeName: (ctx) => ProjectDetailScreen(),
-        AchievementsScreen.routeName: (ctx) => const AchievementsScreen(),
-        HomeTok.routeName: (ctx) => HomeTok(),
-        FamilyDetailScreen.routeName: (ctx) => const FamilyDetailScreen(),
-        FamilyScreen.routeName: (ctx) => const FamilyScreen(),
-        ChatDetailPage.routeName: (ctx) => ChatDetailPage(),
-      },
-      onUnknownRoute: (settings) {
-        return MaterialPageRoute(
-          builder: (ctx) => const ProjectsScreen(),
+  Widget build(BuildContext context) => ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      builder: (context, _) {
+        final themeProvider = Provider.of<ThemeProvider>(context);
+
+        return MaterialApp(
+          title: 'Habitouch',
+          // theme: ThemeData(
+          //   primarySwatch: Colors.blue,
+          // ),
+          themeMode: themeProvider.themeMode,
+          theme: MyThemes.lightTheme,
+          darkTheme: MyThemes.darkTheme,
+          // home: CampusScreen(),
+          initialRoute: '/',
+          routes: {
+            ProjectDetailScreen.routeName: (ctx) => ProjectDetailScreen(),
+            AchievementsScreen.routeName: (ctx) => const AchievementsScreen(),
+            HomeTok.routeName: (ctx) => HomeTok(),
+            FamilyDetailScreen.routeName: (ctx) => const FamilyDetailScreen(),
+            FamilyScreen.routeName: (ctx) => const FamilyScreen(),
+            ChatDetailPage.routeName: (ctx) => ChatDetailPage(),
+          },
+          onUnknownRoute: (settings) {
+            return MaterialPageRoute(
+              builder: (ctx) => const ProjectsScreen(),
+            );
+          },
         );
-      },
-    );
-  }
+      });
 }
