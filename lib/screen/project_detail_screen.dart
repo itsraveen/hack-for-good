@@ -6,6 +6,7 @@ import '../category_data.dart';
 import '../widgets/navigation_bar.dart';
 
 class ProjectDetailScreen extends StatelessWidget {
+  var selected = false;
   Widget buildIconTile(BuildContext context, Icon icon, String title,
       String subtitle, double mainFontSize) {
     return Container(
@@ -140,7 +141,7 @@ class ProjectDetailScreen extends StatelessWidget {
                           RaisedButton(
                             padding: const EdgeInsets.symmetric(
                               vertical: 8,
-                              horizontal: 50,
+                              horizontal: 40,
                             ),
                             color: Theme.of(context).primaryColor,
                             child: const Text(
@@ -166,12 +167,12 @@ class ProjectDetailScreen extends StatelessWidget {
                             },
                           ),
                           const SizedBox(
-                            width: 30,
+                            width: 10,
                           ),
                           RaisedButton(
                             padding: const EdgeInsets.symmetric(
                               vertical: 8,
-                              horizontal: 40,
+                              horizontal: 30,
                             ),
                             color: Theme.of(context).primaryColor,
                             child: const Text(
@@ -187,6 +188,50 @@ class ProjectDetailScreen extends StatelessWidget {
                                   BorderRadius.all(Radius.circular(30)),
                             ),
                             onPressed: () => startAddNewDonation(context),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(bottom: 10.0),
+                            alignment: Alignment.center,
+                            child: !selected
+                                ? IconButton(
+                                    icon: const Icon(Icons.bookmark_outline),
+                                    iconSize: 50,
+                                    color: Colors.blue,
+                                    splashColor: Colors.yellow,
+                                    onPressed: () {
+                                      selected = true;
+                                      const snackBar = SnackBar(
+                                        content: Text(
+                                          'Added to favourites!',
+                                          style: TextStyle(
+                                            fontSize: 15.0,
+                                          ),
+                                        ),
+                                      );
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(snackBar);
+                                    },
+                                  )
+                                : IconButton(
+                                    icon: const Icon(
+                                      Icons.bookmark,
+                                    ),
+                                    iconSize: 40,
+                                    color: Colors.blue,
+                                    splashColor: Colors.yellow,
+                                    onPressed: () {
+                                      const snackBar = SnackBar(
+                                        content: Text(
+                                          'Added to favourites!',
+                                          style: TextStyle(
+                                            fontSize: 15.0,
+                                          ),
+                                        ),
+                                      );
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(snackBar);
+                                    },
+                                  ),
                           ),
                         ],
                       ),
@@ -299,28 +344,21 @@ class ProjectDetailScreen extends StatelessWidget {
                 } else {
                   Navigator.of(context).pop();
                   _amountController.clear();
+                  const snackBar = SnackBar(
+                    content: Text(
+                      'You have just made having a home possible for some kids!',
+                      style: TextStyle(
+                        fontSize: 15.0,
+                      ),
+                    ),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 }
               },
             )
           ],
-          // onTap: () {},
-          // child: const Donation(),
-          // behavior: HitTestBehavior.opaque,
         );
       },
     );
   }
-
-  // _submitData(ctx) {
-  //   if (_amountController.text.isEmpty) {
-  //     return;
-  //   }
-  //   final enteredAmount = double.parse(_amountController.text);
-
-  //   if (enteredAmount <= 0) {
-  //     return;
-  //   }
-
-  //   Navigator.of(ctx).pop();
-  // }
 }
