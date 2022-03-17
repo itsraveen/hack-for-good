@@ -79,7 +79,8 @@ class ProjectSearch extends SearchDelegate<String> {
     final resultList = query.isEmpty
         ? projectList
         : projectList.where((proj) {
-            return proj.name.toLowerCase().contains(query.toLowerCase());
+            return proj.name.toLowerCase().contains(query.toLowerCase()) |
+                proj.organisation.toLowerCase().contains(query.toLowerCase());
           }).toList();
     return SearchedRoomList(resultList: resultList);
   }
@@ -90,7 +91,8 @@ class ProjectSearch extends SearchDelegate<String> {
     final suggestionList = query.isEmpty
         ? projectList
         : projectList.where((proj) {
-            return proj.name.toLowerCase().contains(query.toLowerCase());
+            return proj.name.toLowerCase().contains(query.toLowerCase()) |
+                proj.organisation.toLowerCase().contains(query.toLowerCase());
           }).toList();
     return SearchedRoomList(resultList: suggestionList);
   }
