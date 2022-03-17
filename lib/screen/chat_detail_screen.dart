@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import '../category_data.dart';
 import '../models/chat_message.dart';
 
-class ChatDetailPage extends StatelessWidget {
+class ChatDetailPage extends StatefulWidget {
   ChatDetailPage({Key? key}) : super(key: key);
   static const routeName = '/chat-screen';
 
-//   @override
-//   _ChatDetailPageState createState() => _ChatDetailPageState();
-// }
+  @override
+  _ChatDetailPageState createState() => _ChatDetailPageState();
+}
 
-// class _ChatDetailPageState extends State<ChatDetailPage> {
+class _ChatDetailPageState extends State<ChatDetailPage> {
   final _controller = TextEditingController();
   var _enteredMessage = "";
 
@@ -68,8 +68,8 @@ class ChatDetailPage extends StatelessWidget {
                           height: 6,
                         ),
                         Text(
-                          // "Online",
-                          selectedProject.messages.length.toString(),
+                          "Online",
+                          // selectedProject.messages.length.toString(),
                           style: TextStyle(
                               color: Colors.grey.shade600, fontSize: 13),
                         ),
@@ -156,9 +156,9 @@ class ChatDetailPage extends StatelessWidget {
                             hintStyle: TextStyle(color: Colors.black54),
                             border: InputBorder.none),
                         onChanged: (value) {
-                          // setState(() {
-                          _enteredMessage = value;
-                          // });
+                          setState(() {
+                            _enteredMessage = value;
+                          });
                         },
                       ),
                     ),
@@ -170,15 +170,15 @@ class ChatDetailPage extends StatelessWidget {
                       onPressed: _enteredMessage.trim().isEmpty
                           ? null
                           : () {
-                              // setState(
-                              //   () {
-                              selectedProject.messages.add(
-                                ChatMessage(
-                                    messageContent: _enteredMessage,
-                                    messageType: "sender"),
+                              setState(
+                                () {
+                                  selectedProject.messages.add(
+                                    ChatMessage(
+                                        messageContent: _enteredMessage,
+                                        messageType: "sender"),
+                                  );
+                                },
                               );
-                              //   },
-                              // );
                             },
                     ),
                     // const Expanded(
