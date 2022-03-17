@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/change_theme_button.dart';
 import '../widgets/profile_item.dart';
 import '../widgets/navigation_bar.dart';
 // import '../widgets/size_config.dart';
@@ -19,6 +20,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profile'),
+        actions: [
+          ChangeThemeButtonWidget(),
+        ],
       ),
       // body: const Center(
       //   child: Text("Profile"),
