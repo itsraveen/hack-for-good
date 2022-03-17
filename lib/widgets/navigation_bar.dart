@@ -9,12 +9,14 @@ import '../screen/profile_screen.dart';
 import '../screen/projects_screen.dart';
 // import 'package:sizer/sizer.dart';
 
+// ignore: must_be_immutable
 class NavigationsBar extends StatefulWidget {
   // Function _selectPage;
   int pageNo;
-  NavigationsBar(this.pageNo);
+  NavigationsBar(this.pageNo, {Key? key}) : super(key: key);
 
   @override
+  // ignore: no_logic_in_create_state
   _NavigationsBarState createState() => _NavigationsBarState(pageNo);
 }
 
@@ -32,7 +34,7 @@ class _NavigationsBarState extends State<NavigationsBar> {
     },
     {
       'page': HomeTok(),
-      'title': 'Home Tok',
+      'title': 'HabiTok',
       // 'appBar':,
     },
     {
@@ -137,7 +139,7 @@ class _NavigationsBarState extends State<NavigationsBar> {
                   ? Theme.of(context).primaryColor
                   : Theme.of(context).iconTheme.color,
             ),
-            label: "Home Tok",
+            label: "HabiTok",
             backgroundColor: Theme.of(context).backgroundColor,
           ),
           BottomNavigationBarItem(

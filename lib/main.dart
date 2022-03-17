@@ -22,9 +22,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final List<Projects> _availableProjects = PROJECTS_CATEGORIES;
-  // List<Campus> _availableCampus = CAMPUS_CATEGORIES;
-  // List<Building> _availableBuildings = BUILDING_CATEGORIES;
-  // List<Room> _availableRooms = ROOMS;
 
   @override
   Widget build(BuildContext context) {
