@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hackforgood/providers/theme_provider.dart';
 import 'package:hackforgood/screen/chat_detail_screen.dart';
 import 'package:provider/provider.dart';
 

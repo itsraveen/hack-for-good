@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hackforgood/providers/theme_provider.dart';
 import 'package:hackforgood/screen/achievements_screen.dart';
 import 'package:hackforgood/screen/chat_detail_screen.dart';
+import 'package:hackforgood/screen/family_chat_detail_screen.dart';
 import 'package:hackforgood/screen/family_detail_screen.dart';
 import 'package:hackforgood/screen/home_tok.dart';
 import 'package:provider/provider.dart';
@@ -56,6 +57,7 @@ class MyApp extends StatelessWidget with ChangeNotifier {
             FamilyDetailScreen.routeName: (ctx) => const FamilyDetailScreen(),
             FamilyScreen.routeName: (ctx) => const FamilyScreen(),
             ChatDetailPage.routeName: (ctx) => ChatDetailPage(),
+            FamilyChatDetailPage.routeName: (ctx) => FamilyChatDetailPage(),
           },
           initialRoute: '/',
           onUnknownRoute: (settings) {

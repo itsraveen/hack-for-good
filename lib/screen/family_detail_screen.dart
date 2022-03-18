@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackforgood/screen/chat_detail_screen.dart';
+import 'package:hackforgood/screen/family_chat_detail_screen.dart';
 
 import '../category_data.dart';
 import '../widgets/navigation_bar.dart';
@@ -155,10 +155,12 @@ class FamilyDetailScreen extends StatelessWidget {
                                   BorderRadius.all(Radius.circular(30)),
                             ),
                             onPressed: () => {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ChatDetailPage()),
+                              Navigator.of(context).pushNamed(
+                                FamilyChatDetailPage.routeName,
+                                arguments: {
+                                  'title': familyTitle.toString(),
+                                  // 'ctx': context,
+                                },
                               )
                             },
                           ),
