@@ -1,7 +1,8 @@
 {
   "projects": {
-    "default": "habitouch2-5fe47",
-    "ht2": "habitouch2-5fe47"
+    "default": "habitouch-final",
+    "ht2": "habitouch2-5fe47",
+    "habitouchfinal": "habitouch-final"
   },
   "targets": {}
 }
