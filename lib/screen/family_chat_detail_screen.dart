@@ -5,7 +5,7 @@ import '../models/chat_message.dart';
 
 class FamilyChatDetailPage extends StatefulWidget {
   FamilyChatDetailPage({Key? key}) : super(key: key);
-  static const routeName = '/chat-screen';
+  static const routeName = '/family-chat-screen';
 
   @override
   _FamilyChatDetailPageState createState() => _FamilyChatDetailPageState();

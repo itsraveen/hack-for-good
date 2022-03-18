@@ -1,28 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:hackforgood/category_data.dart';
+
+import '../models/projects.dart';
 
 class ProjectsProvider with ChangeNotifier {
-  List<String> _favProjects = [];
+  List<Projects> _favProjects = PROJECTS_CATEGORIES;
 
-  List<String> get favRooms {
+  List<Projects> get favProj {
     return [..._favProjects];
   }
 
-  List<String> get noDuplicates {
-    return _favProjects.toSet().toList();
+  List<Projects> get favouriteRooms {
+    return _favProjects.where((proj) => proj.isFavourite).toList();
+  }
+
+  Projects findByName(String name) {
+    return _favProjects.firstWhere((room) => room.name == name);
   }
 
   bool isProjFav(String roomName) {
-    return _favProjects.any((element) => element == roomName);
+    return favouriteRooms.any((element) => element == roomName);
   }
 
-  void toggleFavourite(String roomName) async {
-    bool isProjInFavList = isProjFav(roomName);
-    if (isProjInFavList) {
-      _favProjects.removeWhere((element) => element == roomName);
-      notifyListeners();
-    } else {
-      _favProjects.add(roomName);
-      notifyListeners();
-    }
+  void toggleFavourite(String name) {
+    Projects proj = findByName(name);
+    proj.isFavourite = !proj.isFavourite;
+    print(proj.name + proj.isFavourite.toString());
+
+    notifyListeners();
   }
 }

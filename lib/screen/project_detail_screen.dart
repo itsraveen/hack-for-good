@@ -7,7 +7,6 @@ import '../providers/projects_provider.dart';
 import '../widgets/navigation_bar.dart';
 
 class ProjectDetailScreen extends StatelessWidget {
-  var selected = false;
   Widget buildIconTile(BuildContext context, Icon icon, String title,
       String subtitle, double mainFontSize) {
     return Container(
@@ -85,7 +84,7 @@ class ProjectDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final roomsProvider = Provider.of<ProjectsProvider>(context);
+    final roomsProvider = Provider.of<ProjectsProvider>(context, listen: true);
 
     final routeArgs =
         ModalRoute.of(context)?.settings.arguments as Map<String, String>;
@@ -93,7 +92,8 @@ class ProjectDetailScreen extends StatelessWidget {
     final projectImage = routeArgs['image'];
     final selectedProject = PROJECTS_CATEGORIES
         .firstWhere((project) => project.name == projectTitle);
-    bool isFav = roomsProvider.isProjFav(selectedProject.name);
+    bool isFav = selectedProject.isFavourite;
+    //roomsProvider.isProjFav(selectedProject.name);
 
     return Scaffold(
       // appBar: AppBar(
@@ -160,14 +160,14 @@ class ProjectDetailScreen extends StatelessWidget {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(30)),
                             ),
-                            onPressed: () {
+                            onPressed: () => {
                               Navigator.of(context).pushNamed(
                                 ChatDetailPage.routeName,
                                 arguments: {
                                   'title': projectTitle.toString(),
                                   // 'ctx': context,
                                 },
-                              );
+                              )
                             },
                           ),
                           const SizedBox(

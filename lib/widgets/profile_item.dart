@@ -64,11 +64,12 @@ class ProfileItem extends StatelessWidget {
                         vertical: 8,
                         horizontal: 30,
                       ),
-                      color: Theme.of(context).primaryColor,
+                      color: Colors
+                          .blue.shade200, //Theme.of(context).primaryColor,
                       child: const Text(
                         'EDIT',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
                         ),

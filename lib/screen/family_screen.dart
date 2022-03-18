@@ -37,7 +37,7 @@ class FamilyScreen extends StatelessWidget {
             )
             .toList(),
       ),
-      bottomNavigationBar: NavigationsBar(3),
+      bottomNavigationBar: NavigationsBar(2),
     );
   }
 }

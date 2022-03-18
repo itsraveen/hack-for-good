@@ -1,17 +1,13 @@
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hackforgood/screen/favourite_projects.dart';
 import 'package:hackforgood/screen/home_tok.dart';
 
 import '../screen/family_screen.dart';
 import '../screen/profile_screen.dart';
 import '../screen/projects_screen.dart';
-// import 'package:sizer/sizer.dart';
 
 // ignore: must_be_immutable
 class NavigationsBar extends StatefulWidget {
-  // Function _selectPage;
   int pageNo;
   NavigationsBar(this.pageNo, {Key? key}) : super(key: key);
 
@@ -30,32 +26,30 @@ class _NavigationsBarState extends State<NavigationsBar> {
     {
       'page': const ProjectsScreen(),
       'title': 'Projects',
-      // 'appBar':,
     },
     {
       'page': HomeTok(),
       'title': 'HabiTok',
-      // 'appBar':,
-    },
-    {
-      'page': const ProfileScreen(),
-      'title': 'Projects',
-      // 'appBar':,
     },
     {
       'page': const FamilyScreen(),
       'title': 'Families',
-      // 'appBar':,
+    },
+    {
+      'page': const ProfileScreen(),
+      'title': 'Projects',
+    },
+    {
+      'page': FavouritesProjectsScreen(),
+      'title': 'Favourites',
     },
   ];
 
   void _selectPage(int index) {
-    // navBarTapped = true;
     setState(() {
       _selectedPageIndex = index;
     });
     if (_selectedPageIndex == 0) {
-      //Navigator.of(context).popAndPushNamed(CampusScreen.routeName);
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
@@ -65,7 +59,6 @@ class _NavigationsBarState extends State<NavigationsBar> {
         ),
       );
     } else if (_selectedPageIndex == 1) {
-      // Navigator.of(context).popAndPushNamed(SearchScreen.routeName);
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
@@ -74,22 +67,29 @@ class _NavigationsBarState extends State<NavigationsBar> {
         ),
       );
     } else if (_selectedPageIndex == 2) {
-      // Navigator.of(context).popAndPushNamed(SearchScreen.routeName);
-      Navigator.pushReplacement(
-        context,
-        PageRouteBuilder(
-          pageBuilder: (context, animation1, animation2) =>
-              const ProfileScreen(),
-          transitionDuration: const Duration(seconds: 2),
-        ),
-      );
-    } else if (_selectedPageIndex == 3) {
-      // Navigator.of(context).popAndPushNamed(SearchScreen.routeName);
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
           pageBuilder: (context, animation1, animation2) =>
               const FamilyScreen(),
+          transitionDuration: const Duration(seconds: 2),
+        ),
+      );
+    } else if (_selectedPageIndex == 3) {
+      Navigator.pushReplacement(
+        context,
+        PageRouteBuilder(
+          pageBuilder: (context, animation1, animation2) =>
+              FavouritesProjectsScreen(),
+          transitionDuration: const Duration(seconds: 2),
+        ),
+      );
+    } else if (_selectedPageIndex == 4) {
+      Navigator.pushReplacement(
+        context,
+        PageRouteBuilder(
+          pageBuilder: (context, animation1, animation2) =>
+              const ProfileScreen(),
           transitionDuration: const Duration(seconds: 2),
         ),
       );
@@ -109,9 +109,7 @@ class _NavigationsBarState extends State<NavigationsBar> {
         backgroundColor: Theme.of(context).bottomAppBarColor,
         showUnselectedLabels: true,
         onTap: _selectPage,
-        // unselectedItemColor: Theme.of(context).iconTheme.color,
-        // unselectedItemColor: Colors.black,
-        selectedItemColor: Theme.of(context).primaryColor,
+        selectedItemColor: Colors.grey.shade600,
         selectedFontSize: 12,
         unselectedFontSize: 12,
         iconSize: 24,
@@ -120,13 +118,13 @@ class _NavigationsBarState extends State<NavigationsBar> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(
-              // _selectedPageIndex == pageNo
+              // _selectedPageIndex == pageNo,
               pageNo == 0 ? Icons.explore : Icons.explore,
               color: pageNo == 0
                   ? Theme.of(context).primaryColor
                   : Theme.of(context).iconTheme.color,
             ),
-            label: "Test",
+            label: "Explore",
             backgroundColor: Theme.of(context).backgroundColor,
           ),
           BottomNavigationBarItem(
@@ -145,25 +143,36 @@ class _NavigationsBarState extends State<NavigationsBar> {
           BottomNavigationBarItem(
             icon: Icon(
               // _selectedPageIndex == pageNo
-              pageNo == 2
-                  ? Icons.manage_accounts_sharp
-                  : Icons.manage_accounts_sharp,
+              pageNo == 2 ? Icons.family_restroom : Icons.family_restroom,
               color: pageNo == 2
                   ? Theme.of(context).primaryColor
                   : Theme.of(context).iconTheme.color,
             ),
-            label: "Profile",
+            label: "Family",
             backgroundColor: Theme.of(context).backgroundColor,
           ),
           BottomNavigationBarItem(
             icon: Icon(
               // _selectedPageIndex == pageNo
-              pageNo == 3 ? Icons.family_restroom : Icons.family_restroom,
+              pageNo == 3 ? Icons.favorite : Icons.favorite_border,
               color: pageNo == 3
                   ? Theme.of(context).primaryColor
                   : Theme.of(context).iconTheme.color,
             ),
-            label: "Family",
+            label: "Favourites",
+            backgroundColor: Theme.of(context).backgroundColor,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              // _selectedPageIndex == pageNo
+              pageNo == 4
+                  ? Icons.manage_accounts_sharp
+                  : Icons.manage_accounts_sharp,
+              color: pageNo == 4
+                  ? Theme.of(context).primaryColor
+                  : Theme.of(context).iconTheme.color,
+            ),
+            label: "Profile",
             backgroundColor: Theme.of(context).backgroundColor,
           ),
         ],
